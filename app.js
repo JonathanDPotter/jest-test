@@ -29,14 +29,39 @@ const calculator = {
 };
 
 const cipher = (string) => {
-  let tempArray = string.split("");
-  let resultArray = [];
+  let tempArray = string.split(""),
+    resultArray = [],
+    resultString = "";
   tempArray.forEach((char) => {
     let charCode = char.charCodeAt(0);
     if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
-      console.log("it's a letter");
+      charCode = charCode + 3;
+      if ((charCode > 90 && charCode < 97) || charCode > 122) {
+        charCode = charCode - 26;
+      }
     }
+    resultArray.push(String.fromCharCode(charCode));
   });
+  resultString = resultArray.join("");
+  return resultString;
 };
 
-module.exports = { sum, capitalize, reverse, calculator, cipher };
+const arrayAnalysis = (array) => {
+  const result = {};
+
+  result.average = array.reduce((a, b) => a + b, 0) / array.length;
+  result.min = Math.min(...array);
+  result.max = Math.max(...array);
+  result.length = array.length;
+
+  return result;
+};
+
+module.exports = {
+  sum,
+  capitalize,
+  reverse,
+  calculator,
+  cipher,
+  arrayAnalysis,
+};

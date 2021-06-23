@@ -17,10 +17,19 @@ test("calculator", () => {
   expect(myFunctions.calculator.subtract(2, 1)).toBe(1);
   expect(myFunctions.calculator.multiply(2, 2)).toBe(4);
   expect(myFunctions.calculator.divide(4, 2)).toBe(2);
-})
+});
 
 test("caesar cipher", () => {
   expect(
     myFunctions.cipher("The quick, red fox jumped over the lazy, brown dog.")
   ).toBe("Wkh txlfn, uhg ira mxpshg ryhu wkh odcb, eurzq grj.");
-})
+});
+
+test("array analysis", () => {
+  expect(myFunctions.arrayAnalysis([1, 8, 3, 4, 2, 6])).toStrictEqual({
+    average: 4,
+    min: 1,
+    max: 8,
+    length: 6,
+  });
+});
